@@ -1,0 +1,13 @@
+{
+  "name": "baby-bot-infra",
+  "description": "repositories and github action secrets and variables",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "dependencies": {
+    "@pulumi/pulumi": "^3.0.0",
+    "@pulumi/github": "5.20.0"
+  }
+}

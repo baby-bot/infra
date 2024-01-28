@@ -1,0 +1,7 @@
+name: baby-bot-infra
+runtime: nodejs
+description: repositories and github action secrets and variables
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/cc3def00-17b5-43c3-b1b4-ec2434c7898e.zip
