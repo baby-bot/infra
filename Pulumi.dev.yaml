@@ -1,0 +1,6 @@
+config:
+  baby-bot-infra:passphraseRepoAccessToken:
+    secure: AAABAPOrc60CCUvVKzAtvIPyDA15sHPxovwDhQ1/PKId7fsfI4ciWTp+ThpIC2RpwGSLbnGoAHTX8eOtszanQGRbgKLfbaj3NvLAwwnD6mkikWRz+f+H2W+9Vg0WutUH5o4i7Zx0USSP24SQo6VTkBCMDI0wKnGhzryp98M=
+  github:owner: baby-bot
+  github:token:
+    secure: AAABAHJE+EC6JdzAsbLFHggJmp/kW0CigLsiMwEiyFAHyySa5Vazp8sUCl0lX8aKGFBIC2Tkt+UMPr1ue7eMThVKGPpnOCyDmx4p2ieizCtsjqiu/bVe+q4RvZszSGVHPz9dfZm29OWGIkOOn2v/rF+dWiEE0VaZe197qWk=

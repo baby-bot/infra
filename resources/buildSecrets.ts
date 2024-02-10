@@ -1,11 +1,16 @@
 import * as github from "@pulumi/github";
-import { uiRepo } from ".";
+import * as pulumi from "@pulumi/pulumi";
+
+import { UI_REPO } from "./repositories";
 
 interface Secret {
   name: string;
-  value: string;
+  value: string | pulumi.Output<string>;
   description: string;
 }
+
+// Create a config object
+const config = new pulumi.Config();
 
 export const buildUiWorkflowSecrets = () => {
   const secrets: Secret[] = [
@@ -48,7 +53,12 @@ export const buildUiWorkflowSecrets = () => {
       description:
         "The passphrase that you assigned when initializing match, will be used for decrypting the certificates and provisioning profile.",
     },
-    { name: "GIT_TOKEN", value: "", description: "Your personal access token" },
+    {
+      name: "GIT_TOKEN",
+      value: config.requireSecret("passphraseRepoAccessToken"),
+      description:
+        "Personal access token authorized to read the secret passphrase repository, where iOS signing credentials are stored.",
+    },
     {
       name: "PROVISIONING_PROFILE_SPECIFIER",
       value: "YOUR_PROVISIONING_PROFILE_SPECIFIER",
@@ -83,14 +93,14 @@ export const buildUiWorkflowSecrets = () => {
     },
     {
       name: "CERTIFICATE_STORE_URL",
-      value: "YOUR_CERTIFICATE_STORE_URL",
-      description: "The repo url of your Match keys (ex:",
+      value: "baby-bot/fastlane_match",
+      description: "The repo url of your Match keys.",
     },
   ];
 
   secrets.forEach((secret) => {
     new github.ActionsSecret(secret.name, {
-      repository: uiRepo.name,
+      repository: UI_REPO.name,
       secretName: secret.name,
       plaintextValue: secret.value,
     });
