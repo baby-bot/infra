@@ -1,5 +1,6 @@
 {
-  "image": "ghcr.io/pulumi/devcontainer:cache",
+  "image": "ghcr.io/pulumi/devcontainer",
   "features": {
-  }
+  },
+  "initializeCommand": "ls"
 }
